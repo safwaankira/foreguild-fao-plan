@@ -5,66 +5,90 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Foreguild — Markets Hire, Markets Pay</title>
 <meta name="description" content="A revenue-first operating plan for Foreguild, Seer's AI job board run as a Futarchy Autonomous Organization: every task is a market, every policy is a bet, and the treasury only grows when the market says it will.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{
+  --bg:#f7f8fc;--panel:#ffffff;--panel2:#eef1fb;--ink:#141a33;--muted:#5b6487;--line:#dfe3f1;
+  --violet:#5b4de0;--mint:#0f9d74;--amber:#c47d00;--rose:#d6365f;--sky:#1d6fd1;
+  --figbg:#0b1020;--figpanel:#121a33;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --sans:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+}
+:root[data-theme="dark"]{
   --bg:#0b1020;--panel:#121a33;--panel2:#18224a;--ink:#e8ecff;--muted:#9aa6d6;--line:#26315f;
   --violet:#8b7cff;--mint:#4fe3b0;--amber:#ffc857;--rose:#ff6b8b;--sky:#5cc8ff;
-  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.72 var(--sans);-webkit-font-smoothing:antialiased}
 a{color:var(--sky);text-decoration:none}a:hover{text-decoration:underline}
-.wrap{max-width:900px;margin:0 auto;padding:0 20px 80px}
-header{padding:64px 0 32px;border-bottom:1px solid var(--line)}
+.wrap{max-width:860px;margin:0 auto;padding:0 22px 90px}
+/* top bar */
+.bar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .in{max-width:860px;margin:0 auto;padding:10px 22px;display:flex;align-items:center;gap:14px;font-size:13.5px}
+.bar .t{font-weight:700;letter-spacing:-.01em;white-space:nowrap}
+.bar .sp{flex:1}
+.bar button,.bar a.btn{font:inherit;font-size:12.5px;border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:6px 10px;border-radius:8px;cursor:pointer}
+.bar button:hover,.bar a.btn:hover{border-color:var(--violet);text-decoration:none}
+.prog{position:absolute;left:0;bottom:-1px;height:2px;background:var(--violet);width:0}
+header{padding:56px 0 28px;border-bottom:1px solid var(--line)}
 .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mint)}
-h1{font-size:44px;line-height:1.08;margin:12px 0 12px;letter-spacing:-.02em}
-.sub{font-size:20px;color:var(--muted);max-width:720px;margin:0}
+h1{font-size:46px;line-height:1.06;margin:12px 0 14px;letter-spacing:-.025em;font-weight:800}
+.sub{font-size:21px;line-height:1.5;color:var(--muted);max-width:720px;margin:0}
 .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
-.pill{font-family:var(--mono);font-size:12px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
-h2{font-size:26px;margin:56px 0 12px;letter-spacing:-.01em;scroll-margin-top:24px}
-h2 .n{font-family:var(--mono);color:var(--violet);font-size:14px;margin-right:10px;vertical-align:middle}
-h3{font-size:17px;margin:26px 0 8px;color:var(--ink)}
-p{margin:10px 0}
-.lede{font-size:18px;color:var(--ink)}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
-.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:18px 0}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
-.card .big{font-size:30px;font-weight:700;letter-spacing:-.02em}
+.pill{font-family:var(--mono);font-size:12px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:var(--panel)}
+h2{font-size:28px;margin:64px 0 14px;letter-spacing:-.015em;scroll-margin-top:64px;padding-top:28px;border-top:1px solid var(--line);font-weight:800}
+h2 .n{font-family:var(--mono);color:var(--violet);font-size:14px;margin-right:12px;vertical-align:middle;font-weight:600}
+h3{font-size:18px;margin:30px 0 8px;color:var(--ink);font-weight:700;scroll-margin-top:64px}
+p{margin:12px 0;max-width:72ch}
+.lede{font-size:19px;line-height:1.6;color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:20px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 1px 2px rgba(20,26,51,.04)}
+.card .big{font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.15}
 .card .lab{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
-.card .why{font-size:14px;color:var(--muted);margin-top:6px}
-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px}
-th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-td.num{font-family:var(--mono);white-space:nowrap}
-tr.tot td{font-weight:700;border-top:1px solid var(--violet)}
-.fig{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;margin:18px 0}
+.card .why{font-size:14.5px;line-height:1.55;color:var(--muted);margin-top:8px}
+.tw{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;line-height:1.5}
+th,td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--panel2) 45%,transparent)}
+tr:last-child td{border-bottom:0}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--panel2);position:sticky;top:0}
+td.num{font-family:var(--mono);white-space:nowrap;font-size:13.5px}
+tr.tot td{font-weight:700;border-top:2px solid var(--violet)}
+.fig{background:var(--figbg);border:1px solid var(--line);border-radius:16px;padding:16px;margin:22px 0;color:#e8ecff}
 .fig svg{width:100%;height:auto;display:block}
-.cap{font-size:13px;color:var(--muted);margin:8px 2px 0}
-.callout{border-left:3px solid var(--mint);background:var(--panel);padding:12px 16px;border-radius:0 10px 10px 0;margin:16px 0}
+.cap{font-size:13.5px;line-height:1.5;color:#9aa6d6;margin:10px 4px 0}
+.callout{border-left:4px solid var(--mint);background:var(--panel);padding:14px 18px;border-radius:0 12px 12px 0;margin:18px 0;font-size:16px}
 .callout.amber{border-color:var(--amber)}.callout.rose{border-color:var(--rose)}.callout.violet{border-color:var(--violet)}
-.q{font-family:var(--mono);font-size:13.5px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:10px 0;white-space:pre-wrap}
-ul{padding-left:20px}li{margin:4px 0}
+.q{font-family:var(--mono);font-size:13.5px;line-height:1.6;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:10px 0;white-space:pre-wrap;color:var(--ink)}
+ul{padding-left:22px;max-width:72ch}li{margin:6px 0}
 .toc{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;margin:18px 0 0}
 .toc a{color:var(--muted)}.toc a:hover{color:var(--ink)}
-.summary{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:28px 0 0}
-.summary ol{margin:8px 0 0;padding-left:22px}.summary li{margin:6px 0}
-.calc{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;margin:18px 0}
-.calc .row{display:grid;grid-template-columns:180px 1fr 90px;gap:12px;align-items:center;margin:8px 0;font-size:14px}
+.summary{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px 24px;margin:30px 0 0;box-shadow:0 1px 2px rgba(20,26,51,.04)}
+.summary ol{margin:8px 0 0;padding-left:22px}.summary li{margin:8px 0}
+.calc{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;margin:20px 0}
+.calc .row{display:grid;grid-template-columns:200px 1fr 90px;gap:12px;align-items:center;margin:10px 0;font-size:14.5px}
 .calc input[type=range]{width:100%;accent-color:var(--violet)}
-.calc .val{font-family:var(--mono);text-align:right;color:var(--mint)}
-.calc .out{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
-.calc .o{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.calc .val{font-family:var(--mono);text-align:right;color:var(--mint);font-weight:600}
+.calc .out{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+.calc .o{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
 .calc .o .lab{font-family:var(--mono);font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
 .calc .o .v{font-size:22px;font-weight:700;font-family:var(--mono)}
 .calc .o .v.neg{color:var(--rose)}
-footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
-@media(max-width:640px){h1{font-size:34px}.grid,.grid2,.calc .out{grid-template-columns:1fr}.calc .row{grid-template-columns:1fr;gap:4px}}
-@media print{body{background:#fff;color:#111}.card,.fig,.q,.callout,.summary,.calc{background:#f6f7fb;border-color:#ddd}a{color:#1b4fd8}.calc input{display:none}}
+.calc .cap{color:var(--muted)}
+footer{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);font-size:13.5px;color:var(--muted)}
+.top{position:fixed;right:18px;bottom:18px;z-index:20;font-size:12.5px;border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:8px 11px;border-radius:999px;opacity:0;transition:opacity .2s}
+.top.on{opacity:1}
+@media(max-width:700px){h1{font-size:34px}.sub{font-size:18px}h2{font-size:24px}.grid,.grid2,.calc .out{grid-template-columns:1fr}.calc .row{grid-template-columns:1fr;gap:4px}.bar .t{display:none}body{font-size:16px}}
+@media print{.bar,.top{display:none}body{background:#fff;color:#111;font-size:12.5pt}.card,.q,.callout,.summary,.calc,.tw{background:#fff;border-color:#ccc;box-shadow:none}a{color:#1b4fd8}.calc input{display:none}h2{break-after:avoid}.fig,table,.callout{break-inside:avoid}}
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="bar"><div class="in"><span class="t">Foreguild · Markets Hire, Markets Pay</span><span class="sp"></span><a class="btn" href="#summary">Summary</a><button id="theme" type="button" aria-label="Toggle colour theme">☾ Dark</button><button type="button" onclick="window.print()">Print / PDF</button><div class="prog" id="prog"></div></div></div>
+<a class="top" id="totop" href="#top">↑ Top</a>
+<div class="wrap" id="top">
 
 <header>
   <div class="kicker">Seer · FAO Operating Plan Contest · Foreguild</div>
@@ -151,7 +175,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-si
 <div class="callout violet">Why this is more than a job board: Foreguild becomes the largest creator of resolvable markets on Seer, every one of them with real edge for anyone who understands the work. Seer's trader side gets a weekly supply of Deep batches and Tier A markets; its information side gets the first calibrated price feed on AI work.</div>
 
 <h2 id="agents"><span class="n">04</span>The swarm: six roles, two kinds</h2>
-<table>
+<div class="tw"><table>
 <tr><th>Role</th><th>Kind</th><th>Does</th><th>Earns</th><th>Stakes</th></tr>
 <tr><td><b>Poster</b></td><td>Human or agent</td><td>Writes the task, funds escrow (sDAI/USDC on Gnosis), may hedge by buying NO, may object within 48h</td><td>The deliverable</td><td>Escrow</td></tr>
 <tr><td><b>Worker</b></td><td>Open-market agent</td><td>Bids with price + P(deliver), builds, delivers with a signed receipt, holds YES</td><td>Task price − 3%, plus YES redemption</td><td>50 sDAI (Open) · 500 (Proven) · 2,500 (Verified) + 2% of task in YES</td></tr>
@@ -159,18 +183,18 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-si
 <tr><td><b>Scoper</b></td><td>Protocol agent</td><td>Turns requests into resolvable specs, quotes bands, rejects unresolvable tasks, writes the Reality.eth question and creates the Seer market</td><td>Ops budget</td><td>—</td></tr>
 <tr><td><b>Matcher</b></td><td>Protocol agent</td><td>Calibrates bids against each worker's resolved-market history, assigns, rematches</td><td>Ops budget</td><td>—</td></tr>
 <tr><td><b>Treasurer</b></td><td>Protocol agent</td><td>Executes only what a passed futarchy market authorised; posts the weekly revenue number to the oracle</td><td>Ops budget</td><td>—</td></tr>
-</table>
+</table></div>
 <p>The three protocol agents are the "swarm doing work" and they are replaceable by governance: a futarchy pair can swap the Matcher's model or prompt the way it changes a fee, and the metric says within 90 days whether the swap earned its keep. Workers and assessors are anyone's agents, registered with an ERC-8004-style identity and a stake, paid by stablecoin pulls so no one custodies anything. Verified tier has no interview: applicants are listed as outcomes in an Opportunity Market that forecasts which ones Seer's reviewers will approve, the reviewers approve from the top of that ranking, and 2,500 sDAI is posted.</p>
 
 <h2 id="demand"><span class="n">05</span>Where tasks come from on day one</h2>
 <p>Job boards die of empty queues. Foreguild launches with four queues that already exist and already pay in crypto, in the order they can be switched on.</p>
-<table>
+<div class="tw"><table>
 <tr><th>Queue</th><th>Who posts</th><th>Typical task</th><th>Why it's real</th><th>Fee line</th></tr>
 <tr><td><b>Seer's own backlog</b></td><td>Seer, via the Scoper</td><td>Draft a resolvable market question; gather resolution evidence; write the Reality.eth answer; LP rebalancing reports</td><td>Seer does this by hand for every market and contest it runs</td><td>10% task fee</td></tr>
 <tr><td><b>Contest hosting</b></td><td>Any project (Seer first)</td><td>Run a naming, design or plan contest on an Opportunity Market; agents triage, dedupe and summarise entries</td><td>Seer is running three right now (66 and 135 poidh claims on the last two), each 0.5 ETH + 4,000 USDC, judged on Opportunity Markets</td><td>2% of prize + LP fee share</td></tr>
 <tr><td><b>Bounty routing</b></td><td>poidh and other boards</td><td>Pull open bounties from public feeds; workers claim through Foreguild with assessment included</td><td>poidh publishes an open-bounty JSON feed and an MCP server; its bounties are ETH-funded and claim-based</td><td>10% on top of the board's own 2.5%</td></tr>
 <tr><td><b>Grant and funding review</b></td><td>Funding rounds (Deep Funding, Gitcoin, DAO grant programs)</td><td>Agents forecast evaluator scores across large proposal fields; humans review only the top of the ranking</td><td>Deep Funding allocated $350k across 98 repos and 3,677 dependencies with exactly this mechanism on Seer</td><td>Enterprise feed, 2–10k per round</td></tr>
-</table>
+</table></div>
 <div class="callout amber">First-90-day target: <b>300 accepted tasks</b>, at least 100 from outside Seer, <b>12 weekly Deep batches</b> and <b>10 Tier A markets</b> resolved, and <b>3 hosted contests</b>. If Seer's backlog is still more than 60% of volume at day 90, the kill criteria in Section 13 apply.</div>
 
 <h2 id="futarchy"><span class="n">06</span>Futarchy: what gets decided, and how</h2>
@@ -206,7 +230,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-si
 
 <h2 id="worked"><span class="n">07</span>A decision, worked end to end</h2>
 <p>Month 4. A proposal asks to cut the poster fee from 7% to 5% (Q1). Trailing 90-day net fee revenue is 9,800 USDC. The pair is seeded with 500 USDC each side.</p>
-<table>
+<div class="tw"><table>
 <tr><th>Day</th><th>What happens</th><th>YES (adopt)</th><th>NO (reject)</th></tr>
 <tr><td>0</td><td>Pair listed; proposer posts 200 USDC bond; Treasurer seeds liquidity</td><td class="num">9,800</td><td class="num">9,800</td></tr>
 <tr><td>1–3</td><td>Two large posters (a DAO grants program, a contest host) buy YES: a 2-point cut is worth more volume to them than 2 points of margin to the treasury</td><td class="num">11,400</td><td class="num">9,900</td></tr>
@@ -214,22 +238,22 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-si
 <tr><td>5</td><td>Final 48h TWAP compared: YES 10,650 vs NO 10,080, a 5.7% gap, above the 2% threshold</td><td class="num"><b>10,650</b></td><td class="num">10,080</td></tr>
 <tr><td>7</td><td>48h delay passes with no Guardian veto; Treasurer sets poster fee to 5%; NO tokens are burned</td><td colspan="2">Adopted</td></tr>
 <tr><td>97</td><td>Oracle posts the realised 90-day number: 10,420 USDC. YES holders redeem at 10,420 per unit. The 5% fee stays unless a new pair beats it.</td><td colspan="2">Resolved</td></tr>
-</table>
+</table></div>
 <p>Note what did not happen. Nobody voted on whether 5% "feels right". The people with information about demand (posters) and quality (assessors) each priced their part of it, the gap was large enough to act on, and the result is now a datapoint the next proposal can trade against. If YES had been within 2% of NO, nothing would have changed and the 200 USDC bond would have been returned.</p>
 
 <h2 id="revenue"><span class="n">08</span>Revenue: priced against what people pay today</h2>
-<table>
+<div class="tw"><table>
 <tr><th>Platform</th><th>Seller / worker side</th><th>Buyer / poster side</th><th>Blended on $100</th></tr>
 <tr><td>Fiverr</td><td class="num">20%</td><td class="num">5.5% +</td><td class="num">$25.50</td></tr>
 <tr><td>Upwork</td><td class="num">0–15%</td><td class="num">up to 5% (Basic) · 8–10% (Business Plus)</td><td class="num">$5–25</td></tr>
 <tr><td>poidh</td><td class="num">2.5% on payout</td><td class="num">0%</td><td class="num">$2.50</td></tr>
 <tr><td><b>Foreguild at launch</b></td><td class="num"><b>3%</b></td><td class="num"><b>7%</b></td><td class="num"><b>$10.00</b></td></tr>
-</table>
+</table></div>
 <p>Foreguild sits between a bare bounty board and a managed marketplace because it bundles what neither does: assessment, hedging and dispute resolution inside the price, provided by a market instead of staff. The band (5–15%) is the only pricing decision humans make; the point inside it is futarchy's.</p>
 <h3>Unit economics</h3>
 <div class="grid2">
 <div>
-<table>
+<div class="tw"><table>
 <tr><th colspan="3">One accepted $100 task (Tier B, Deep batch)</th></tr>
 <tr><td>Poster fee 7%</td><td class="num">+7.00</td><td>Splitter</td></tr>
 <tr><td>Worker fee 3%</td><td class="num">+3.00</td><td>Splitter</td></tr>
@@ -237,10 +261,10 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-si
 <tr><td>Dispute &amp; refund reserve</td><td class="num">−1.00</td><td>Until 3× trailing payouts</td></tr>
 <tr><td>Protocol agents + gas</td><td class="num">−0.50</td><td>Ops</td></tr>
 <tr class="tot"><td>Treasury</td><td class="num">+6.50</td><td></td></tr>
-</table>
+</table></div>
 </div>
 <div>
-<table>
+<div class="tw"><table>
 <tr><th colspan="3">One accepted $1,000 task (Tier A, own market)</th></tr>
 <tr><td>Poster + worker fees 10%</td><td class="num">+100.00</td><td>Splitter</td></tr>
 <tr><td>Swapr LP fee share</td><td class="num">+0.00</td><td>Counted at zero until a futarchy pair sees real volume</td></tr>
@@ -248,12 +272,12 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-si
 <tr><td>Dispute &amp; refund reserve</td><td class="num">−10.00</td><td>Reserve</td></tr>
 <tr><td>Protocol agents + gas + market creation</td><td class="num">−4.00</td><td>Ops</td></tr>
 <tr class="tot"><td>Treasury</td><td class="num">+76.00</td><td></td></tr>
-</table>
+</table></div>
 </div>
 </div>
 <p>Assessors are never paid from the treasury: in both tiers they earn by being right in a market. That is why the plan can run assessment at 2% of task value where a review desk costs 10%, and why Q3 (where the tier boundary sits) is a question for the market rather than a parameter to guess.</p>
 <h3>Six revenue lines, in the order they switch on</h3>
-<table>
+<div class="tw"><table>
 <tr><th>#</th><th>Line</th><th>Price</th><th>Switches on</th></tr>
 <tr><td>1</td><td>Contest hosting through Opportunity Markets</td><td>2% of prize pool + 50% of that market's LP fees</td><td>Week 1, Seer's own contests</td></tr>
 <tr><td>2</td><td>Task fees</td><td>10% blended; band 5–15%</td><td>Week 2</td></tr>
@@ -261,9 +285,9 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-si
 <tr><td>4</td><td>Objection escalation (Tier C into a batch)</td><td>2% of task, minimum 5 sDAI</td><td>Week 2</td></tr>
 <tr><td>5</td><td>Verified-tier certificate</td><td>99 sDAI a year; Opportunity Market ranks applicants, reviewers approve</td><td>Month 2</td></tr>
 <tr><td>6</td><td>Enterprise review feed (funding rounds, grant programs)</td><td>2,000–10,000 per round, task fee 6%</td><td>Month 3, after one public Deep-style round</td></tr>
-</table>
+</table></div>
 <h3>Base case</h3>
-<table>
+<div class="tw"><table>
 <tr><th></th><th>Day 90</th><th>Month 6</th><th>Month 12</th></tr>
 <tr><td>Accepted tasks</td><td class="num">300</td><td class="num">1,500</td><td class="num">6,000</td></tr>
 <tr><td>Average ticket</td><td class="num">$60</td><td class="num">$75</td><td class="num">$90</td></tr>
@@ -273,7 +297,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-si
 <tr><td>Enterprise rounds</td><td class="num">0</td><td class="num">2</td><td class="num">8</td></tr>
 <tr class="tot"><td>Net fee revenue (period)</td><td class="num">$2.5k</td><td class="num">$23k</td><td class="num">$99k</td></tr>
 <tr><td>Treasury contribution (period)</td><td class="num">$1.9k</td><td class="num">$19k</td><td class="num">$80k</td></tr>
-</table>
+</table></div>
 <p>These are planning numbers with one property worth defending: the treasury line never goes negative, because growth spend is only released when a decision market says it pays back inside 90 days. The twelve-month figure is a Seer-and-Kleros-ecosystem outcome, not a Fiverr outcome. The fee band is what lets the market discover whether a lower take rate buys a bigger one.</p>
 
 <h2 id="calc"><span class="n">09</span>Try the economics</h2>
@@ -325,13 +349,13 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-si
 </script>
 
 <h2 id="runbook"><span class="n">10</span>First 90 days</h2>
-<table>
+<div class="tw"><table>
 <tr><th>Weeks</th><th>Ship</th><th>Gate</th></tr>
 <tr><td>1–2</td><td>Fee splitter + escrow on Gnosis (sDAI/USDC); task registry forked from an open-source agent task market; Base and Ethereum bridge-in for posters; Opportunity Market hosting for Seer's current contests</td><td>First contest hosted, first 2% fee collected</td></tr>
 <tr><td>3–4</td><td>Scoper and Matcher live; Seer backlog queue; 20 worker agents and 10 assessor agents registered with stake</td><td>50 accepted tasks, dispute rate &lt; 8%</td></tr>
 <tr><td>5–8</td><td>First weekly Deep batch per category; first Tier A market; bounty routing from poidh feeds; Q1–Q3 futarchy pairs listed on futarchy.seer.pm; weekly revenue number posted to the oracle</td><td>First binding decision executed by the Treasurer; 4 batches and 3 Tier A markets resolved</td></tr>
 <tr><td>9–12</td><td>Verified tier via Opportunity Market; first external funding round scoped as an enterprise feed; public dashboard of the metric and every open pair</td><td>300 accepted tasks, ≥ 100 non-Seer, 12 batches, 10 Tier A markets, 3 contests, treasury positive</td></tr>
-</table>
+</table></div>
 <p><b>Keys on day one</b>: a 3-of-5 Guardian, two seats from Seer, two independent builders from the Kleros and Gnosis ecosystems, one rotating seat chosen by Opportunity Market each quarter. The Guardian can pause and veto; it cannot spend, propose or decide a dispute on its merits.</p>
 <p><b>Bootstrapping thin markets</b>: for the first 90 days the treasury's liquidity line is funded from contest-hosting fees, not from a token; every decision pair, every Tier A market and every weekly batch gets the subsidy; and liquidity goes into the same Swapr pools Seer markets already use, so Foreguild adds order flow to Seer rather than competing with it.</p>
 
@@ -375,7 +399,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-si
 <p class="cap">Figure 4. Six Foreguild stages, six Seer products, one oracle. Nothing on the bottom row is proposed; all of it runs today.</p>
 </div>
 
-<table>
+<div class="tw"><table>
 <tr><th>Layer</th><th>Existing part</th><th>Role in Foreguild</th></tr>
 <tr><td>Governance</td><td>Seer Futarchy (futarchy.seer.pm; seer-pm/futarchy)</td><td>Every binding decision is a YES/NO pair on the revenue metric</td></tr>
 <tr><td>Tier A task markets</td><td>Seer categorical markets on Gnosis (Reality.eth templates, Conditional Tokens, wrapped ERC-20 outcomes, Swapr pools)</td><td>One market per task ≥ 1,000; assessment, hedge, later LP fees</td></tr>
@@ -385,7 +409,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-si
 <tr><td>Job board and receipts</td><td>Open-source agent task marketplace (e.g. basedagents: Apache-2.0, Hono API, stablecoin settlement, signed receipts, revision rounds, auto-accept)</td><td>Task registry and receipts; fork, repoint to Gnosis, add escrow + splitter</td></tr>
 <tr><td>Agent identity and stake</td><td>ERC-8004-style agent registry; x402 for pay-per-call tool access</td><td>Worker and assessor registration, stake, reputation; metered API revenue later</td></tr>
 <tr><td>Supply of tasks</td><td>poidh open-bounty JSON feed and MCP server</td><td>Bounty routing queue</td></tr>
-</table>
+</table></div>
 <h3>The one new contract</h3>
 <div class="q">ForeguildSplitter (Gnosis)
   postTask(spec, test, deadline, amount)       → escrow sDAI/USDC; emits TaskPosted
@@ -399,7 +423,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-si
 <p>About 300 lines, parameterised by the futarchy-governed values, reviewed through the Kleros ecosystem before launch. Everything else is configuration of systems Seer already operates.</p>
 
 <h2 id="risks"><span class="n">13</span>Risks and kill criteria</h2>
-<table>
+<div class="tw"><table>
 <tr><th>Risk</th><th>Signal</th><th>Response</th></tr>
 <tr><td>Thin markets make futarchy noise</td><td>&lt; 2,000 USDC liquidity on a binding pair</td><td>Decision defaults to the status quo; subsidy doubles once; if still thin, proposal lapses</td></tr>
 <tr><td>Worker pumps YES to hit the fast path</td><td>Worker-cluster volume &gt; 40% of a task market, or YES pumped in the final hour</td><td>Circuit breaker extends trading and voids the fast path for that task; final truth is the acceptance test, Reality.eth and Kleros, so a pumped YES is clawed back from stake</td></tr>
@@ -410,12 +434,24 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-si
 <tr><td>Seer is the only customer</td><td>Seer backlog &gt; 60% of GMV at day 90</td><td><b>Kill criterion</b>: freeze expansion, run one external-demand pair; if it fails, wind down to a Seer-internal tool</td></tr>
 <tr><td>Regulatory pressure on prediction markets</td><td>Jurisdictional notice</td><td>Task, batch and decision markets are information markets on the organisation's own work and revenue, settled in-protocol; geofence the trading UI, keep the job board open</td></tr>
 <tr><td>Treasury never turns positive</td><td>Two consecutive 90-day windows with negative contribution</td><td><b>Kill criterion</b>: Guardian pause, token-holder vote on dissolution, escrow returned</td></tr>
-</table>
+</table></div>
 <div class="callout rose">An FAO that cannot be shut down by its own numbers is just a DAO with better marketing. Foreguild publishes its kill criteria in the same contract that publishes its revenue.</div>
 
 <footer>
   <p>Submitted to Seer's FAO Operating Plan Contest (poidh Base #1531). Fee benchmarks from the platforms' own published fee pages; Deep Funding figures from Seer's account of the GR24 round; OKX AI marketplace details from its June 2026 launch coverage; Seer contest and market figures from poidh.xyz and opportunity.seer.pm as of 5 November 2026. Diagrams and calculator are original. Reproduce freely under CC BY 4.0.</p>
 </footer>
 </div>
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('theme');
+  function apply(t){root.setAttribute('data-theme',t);btn.textContent=t==='dark'?'☀ Light':'☾ Dark';}
+  var saved=null; try{saved=localStorage.getItem('fg-theme');}catch(e){}
+  apply(saved||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));
+  btn.addEventListener('click',function(){var t=root.getAttribute('data-theme')==='dark'?'light':'dark';apply(t);try{localStorage.setItem('fg-theme',t);}catch(e){}});
+  var prog=document.getElementById('prog'), top=document.getElementById('totop');
+  function onScroll(){var h=document.documentElement;var p=(h.scrollTop)/(h.scrollHeight-h.clientHeight);prog.style.width=(p*100)+'%';top.className='top'+(h.scrollTop>900?' on':'');}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+})();
+</script>
 </body>
 </html>
