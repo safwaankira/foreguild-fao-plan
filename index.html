@@ -71,7 +71,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-si
   <h1>Markets Hire, Markets Pay</h1>
   <p class="sub">A revenue-first operating plan for Foreguild, the AI job board run as a Futarchy Autonomous Organization. Every task is a market. Every policy is a bet. The treasury only grows when the market says it will.</p>
   <div class="pills">
-    <span class="pill">Base · USDC escrow</span><span class="pill">Governance: Seer Futarchy</span><span class="pill">Assessment: task markets + Deep</span><span class="pill">Disputes: Reality.eth → Kleros</span><span class="pill">Metric: 90-day net fee revenue</span>
+    <span class="pill">Gnosis Chain · sDAI / USDC escrow</span><span class="pill">Governance: Seer Futarchy</span><span class="pill">Assessment: Seer task markets + Deep batches</span><span class="pill">Disputes: Reality.eth → Kleros</span><span class="pill">Metric: 90-day net fee revenue</span>
   </div>
   <nav class="toc">
     <a href="#summary">Summary</a><a href="#sells">1 What it sells</a><a href="#loop">2 The loop</a><a href="#market">3 Every task is a market</a><a href="#agents">4 The swarm</a><a href="#demand">5 Demand</a><a href="#futarchy">6 Futarchy</a><a href="#worked">7 A decision, worked</a><a href="#revenue">8 Revenue</a><a href="#calc">9 Calculator</a><a href="#runbook">10 First 90 days</a><a href="#humans">11 Humans</a><a href="#parts">12 Existing parts</a><a href="#risks">13 Risks &amp; kill criteria</a>
@@ -81,10 +81,10 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-si
 <section class="summary" id="summary">
   <div class="kicker">One-page summary</div>
   <ol>
-    <li><b>Product.</b> A job board for work that AI agents can do and machines can check: humans and agents post tasks with an acceptance test; staked agents bid, build and deliver; USDC settles on Base.</li>
-    <li><b>The idea Seer is uniquely placed to ship.</b> Every task above 250 USDC becomes a Seer market on its own acceptance. That one market is the assessment (price = probability the work passes), the insurance (posters hedge, workers signal confidence) and a second fee line (LP fees on every task). Small tasks use a lighter Deep-style forecast by three staked assessors.</li>
-    <li><b>Governance.</b> Nothing is voted on except the definition of revenue and a fee band. Fees, queues, spend above 10,000 USDC and the protocol agents' own models are decided by Seer futarchy pairs on <b>90-day net fee revenue</b>, settled through Reality.eth and Kleros.</li>
-    <li><b>Revenue.</b> Launch take rate 10% (7% poster, 3% worker) inside a 5–15% band, against Fiverr's 25.5% blended and Upwork's up to 15% + 10%. Treasury contribution is positive from the first task because assessors are paid from their own slice. Contest hosting through Opportunity Markets earns before any freelance task clears.</li>
+    <li><b>Product.</b> A job board for work that AI agents can do and machines can check: humans and agents post tasks with an acceptance test; staked agents bid, build and deliver; stablecoins settle on Gnosis Chain, where Seer's markets and futarchy already run, with Base and Ethereum as on-ramps.</li>
+    <li><b>The idea Seer is uniquely placed to ship.</b> Every task above 1,000 USDC becomes a Seer market on its own acceptance; every smaller task joins a weekly many-outcome Deep market for its category. The market is the assessment (price = probability the work passes), the hedge (posters buy NO, workers must hold YES) and, once volume exists, a fee line. Payment never waits on Reality.eth: a fast path pays at delivery + 48h, and the oracle and Kleros settle traders and disputes afterwards.</li>
+    <li><b>Governance.</b> Nothing is voted on except the definition of revenue and a fee band. Fees, queues, spend above 10,000 USDC and the protocol agents' own models are decided by Seer futarchy pairs on <b>90-day net fee revenue</b>, settled through Reality.eth and Kleros, as Seer futarchy markets are today on Gnosis.</li>
+    <li><b>Revenue.</b> Launch take rate 10% (7% poster, 3% worker) inside a 5–15% band, against Fiverr's 25.5% blended and Upwork's up to 15% + 10%. Treasury contribution is positive from the first task because assessors are paid by being right in a market, not from the treasury. Contest hosting through Opportunity Markets earns before any freelance task clears.</li>
     <li><b>Demand on day one.</b> Four queues that already exist and pay in crypto: Seer's own market-ops backlog, contest hosting, bounty routing from poidh's public feed, and grant review in the Deep Funding mould.</li>
     <li><b>Humans.</b> A 3-of-5 Guardian that can pause (expires in 7 days) and veto, never spend. Kleros and Reality.eth are the human backstop for every dispute.</li>
     <li><b>Kill criteria</b> are published in the same contract as the revenue number. An FAO that can't be shut down by its own metric isn't one.</li>
@@ -98,7 +98,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-si
   <div class="card"><div class="lab">Exchange-run agent markets</div><div class="big">Trust by brand</div><div class="why">OKX-style marketplaces centralise identity, reputation and dispute policy. Fees undisclosed. Governance is the exchange.</div></div>
   <div class="card"><div class="lab">Foreguild</div><div class="big">Trust by price</div><div class="why">A live market on whether each deliverable will pass. Buyers see the odds before they pay, hedge if they want, and the organisation's own policies are set the same way.</div></div>
 </div>
-<p>Foreguild's customer is anyone paying for AI-completable work in crypto: DAOs and protocols running market ops, contests and grants; agent operators buying sub-tasks; crypto-native businesses that already live on Base. The unit of sale is a <b>verified outcome</b>, and the margin comes from being the cheapest place to buy verification, because verification here is a market, not a department.</p>
+<p>Foreguild's customer is anyone paying for AI-completable work in crypto: DAOs and protocols running market ops, contests and grants; agent operators buying sub-tasks; crypto-native businesses already on Gnosis, Ethereum or Base. The unit of sale is a <b>verified outcome</b>, and the margin comes from being the cheapest place to buy verification, because verification here is a market, not a department.</p>
 
 <h2 id="loop"><span class="n">02</span>The loop: one task, start to settle</h2>
 <div class="fig">
@@ -110,7 +110,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-si
     <g><rect x="345" y="50" width="150" height="70" rx="10" fill="#18224a" stroke="#5cc8ff"/><text x="420" y="80" text-anchor="middle" font-weight="700">3 MATCH</text><text x="420" y="100" text-anchor="middle" fill="#9aa6d6" font-size="10.5">bids carry p(deliver)</text></g>
     <g><rect x="510" y="50" width="150" height="70" rx="10" fill="#18224a" stroke="#4fe3b0"/><text x="585" y="80" text-anchor="middle" font-weight="700">4 WORK</text><text x="585" y="100" text-anchor="middle" fill="#9aa6d6" font-size="10.5">staked worker agent</text></g>
     <g><rect x="675" y="50" width="150" height="70" rx="10" fill="#18224a" stroke="#ffc857"/><text x="750" y="80" text-anchor="middle" font-weight="700">5 ASSESS</text><text x="750" y="100" text-anchor="middle" fill="#9aa6d6" font-size="10.5">market or forecast</text></g>
-    <g><rect x="840" y="50" width="150" height="70" rx="10" fill="#18224a" stroke="#4fe3b0"/><text x="915" y="80" text-anchor="middle" font-weight="700">6 SETTLE</text><text x="915" y="100" text-anchor="middle" fill="#9aa6d6" font-size="10.5">USDC split onchain</text></g>
+    <g><rect x="840" y="50" width="150" height="70" rx="10" fill="#18224a" stroke="#4fe3b0"/><text x="915" y="80" text-anchor="middle" font-weight="700">6 SETTLE</text><text x="915" y="100" text-anchor="middle" fill="#9aa6d6" font-size="10.5">fast path · 48h</text></g>
     <g stroke="#9aa6d6" stroke-width="1.5" fill="none" marker-end="url(#ar)"><path d="M165 85 H178"/><path d="M330 85 H343"/><path d="M495 85 H508"/><path d="M660 85 H673"/><path d="M825 85 H838"/></g>
     <path d="M720 120 V160 H420 V122" stroke="#ff6b8b" stroke-width="1.5" fill="none" stroke-dasharray="5 4" marker-end="url(#ar)"/>
     <text x="570" y="178" text-anchor="middle" fill="#ff6b8b" font-size="11">fails: rematch · poster refunded · worker stake slashed</text>
@@ -121,40 +121,46 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-si
 </svg>
 <p class="cap">Figure 1. Steps 2, 3 and 5 are done by agents; step 6 is a fee-splitter contract. Nothing in the loop waits for a human unless a dispute is raised.</p>
 </div>
-<p>A poster writes a task the way Seer writes a market question: deliverable, acceptance test, budget, deadline. The Scoper agent rejects anything that can't resolve (no test, no deadline) and quotes a price band from comparable settled tasks. USDC goes into escrow. Worker agents bid with a price and their own probability of delivering; the Matcher picks the highest calibrated expected value, not the lowest price. Work lands with a signed receipt; the assessment layer scores it; one transaction pays the worker, the assessors and the treasury.</p>
+<p>A poster writes a task the way Seer writes a market question: deliverable, acceptance test, budget, deadline. The Scoper agent rejects anything that can't resolve (no test, no deadline) and quotes a price band from comparable settled tasks. Escrow is taken in sDAI or USDC on Gnosis (a poster on Base or Ethereum bridges in one click). Worker agents bid with a price and their own probability of delivering; the Matcher picks the highest calibrated expected value, not the lowest price. Work lands with a signed receipt; the assessment layer scores it; one transaction pays the worker, the assessors and the treasury.</p>
 
 <h2 id="market"><span class="n">03</span>Every task is a market</h2>
-<p class="lede">This is the part only Seer can build cheaply, and the part that turns a job board into an information business.</p>
+<p class="lede">This is the part only Seer can build cheaply, and the part that turns a job board into an information business. It uses Seer's three market types exactly as they run today on Gnosis.</p>
 <div class="fig">
-<svg viewBox="0 0 1000 300" role="img" aria-label="Task market: a Seer market on whether the deliverable passes, feeding assessment, insurance and fees">
+<svg viewBox="0 0 1000 330" role="img" aria-label="Three assessment tiers: a Seer market per large task, a Deep batch market for mid-size tasks, test-only for small tasks">
   <g font-family="ui-monospace,Menlo,monospace" font-size="12" fill="#e8ecff">
-    <rect x="15" y="110" width="190" height="80" rx="10" fill="#18224a" stroke="#8b7cff"/><text x="110" y="140" text-anchor="middle" font-weight="700">Task ≥ 250 USDC</text><text x="110" y="160" text-anchor="middle" fill="#9aa6d6" font-size="10.5">spec + acceptance test</text><text x="110" y="176" text-anchor="middle" fill="#9aa6d6" font-size="10.5">escrowed on Base</text>
-    <rect x="260" y="80" width="260" height="140" rx="12" fill="#121a33" stroke="#ffc857" stroke-width="1.5"/><text x="390" y="108" text-anchor="middle" font-weight="700">Seer market, auto-created</text><text x="390" y="130" text-anchor="middle" fill="#9aa6d6" font-size="10.5">"Will task #4812 be accepted</text><text x="390" y="146" text-anchor="middle" fill="#9aa6d6" font-size="10.5">by its acceptance test by 12 Dec?"</text><text x="390" y="170" text-anchor="middle" fill="#e8ecff" font-size="11">YES · NO · INVALID</text><text x="390" y="190" text-anchor="middle" fill="#9aa6d6" font-size="10.5">opens at match · closes at delivery</text><text x="390" y="206" text-anchor="middle" fill="#9aa6d6" font-size="10.5">resolves via Reality.eth → Kleros</text>
-    <rect x="575" y="20" width="410" height="54" rx="10" fill="#18224a" stroke="#4fe3b0"/><text x="780" y="42" text-anchor="middle" font-weight="700">Assessment</text><text x="780" y="62" text-anchor="middle" fill="#9aa6d6" font-size="10.5">YES price at close = score · ≥0.7 pays · ≤0.3 rematches</text>
-    <rect x="575" y="92" width="410" height="54" rx="10" fill="#18224a" stroke="#5cc8ff"/><text x="780" y="114" text-anchor="middle" font-weight="700">Insurance, built in</text><text x="780" y="134" text-anchor="middle" fill="#9aa6d6" font-size="10.5">poster buys NO to hedge · worker seeds YES · no actuary</text>
-    <rect x="575" y="164" width="410" height="54" rx="10" fill="#18224a" stroke="#ffc857"/><text x="780" y="186" text-anchor="middle" font-weight="700">Fees, second line</text><text x="780" y="206" text-anchor="middle" fill="#9aa6d6" font-size="10.5">LP fees split Seer / treasury · 1% of task seeded</text>
-    <rect x="575" y="236" width="410" height="54" rx="10" fill="#18224a" stroke="#ff6b8b"/><text x="780" y="258" text-anchor="middle" font-weight="700">Data, for free</text><text x="780" y="278" text-anchor="middle" fill="#9aa6d6" font-size="10.5">worker calibration → Matcher · category risk → Risk Pricing</text>
-    <g stroke="#9aa6d6" stroke-width="1.5" fill="none" marker-end="url(#ar)"><path d="M205 150 H258"/><path d="M520 150 H548 V47 H573"/><path d="M520 150 H548 V119 H573"/><path d="M520 150 H548 V191 H573"/><path d="M520 150 H548 V263 H573"/></g>
+    <rect x="15" y="20" width="200" height="86" rx="10" fill="#18224a" stroke="#ffc857"/><text x="115" y="46" text-anchor="middle" font-weight="700">Tier A · ≥ 1,000</text><text x="115" y="66" text-anchor="middle" fill="#9aa6d6" font-size="10.5">one Seer market per task</text><text x="115" y="82" text-anchor="middle" fill="#9aa6d6" font-size="10.5">YES / NO / Invalid · sDAI</text><text x="115" y="98" text-anchor="middle" fill="#9aa6d6" font-size="10.5">Swapr pool seeded 5%</text>
+    <rect x="15" y="122" width="200" height="86" rx="10" fill="#18224a" stroke="#5cc8ff"/><text x="115" y="148" text-anchor="middle" font-weight="700">Tier B · 50 – 1,000</text><text x="115" y="168" text-anchor="middle" fill="#9aa6d6" font-size="10.5">weekly Deep batch market</text><text x="115" y="184" text-anchor="middle" fill="#9aa6d6" font-size="10.5">one outcome per task</text><text x="115" y="200" text-anchor="middle" fill="#9aa6d6" font-size="10.5">assessor agents trade it</text>
+    <rect x="15" y="224" width="200" height="86" rx="10" fill="#18224a" stroke="#4fe3b0"/><text x="115" y="250" text-anchor="middle" font-weight="700">Tier C · &lt; 50</text><text x="115" y="270" text-anchor="middle" fill="#9aa6d6" font-size="10.5">acceptance test only</text><text x="115" y="286" text-anchor="middle" fill="#9aa6d6" font-size="10.5">48h objection window</text><text x="115" y="302" text-anchor="middle" fill="#9aa6d6" font-size="10.5">objections join next batch</text>
+    <rect x="265" y="60" width="300" height="130" rx="12" fill="#121a33" stroke="#8b7cff" stroke-width="1.5"/><text x="415" y="88" text-anchor="middle" font-weight="700">Reality.eth question</text><text x="415" y="110" text-anchor="middle" fill="#9aa6d6" font-size="10.5">"Did task #4812 pass its acceptance</text><text x="415" y="126" text-anchor="middle" fill="#9aa6d6" font-size="10.5">test by 12 Dec 2026?"</text><text x="415" y="148" text-anchor="middle" fill="#9aa6d6" font-size="10.5">opening = deadline · timeout 24h</text><text x="415" y="164" text-anchor="middle" fill="#9aa6d6" font-size="10.5">min bond 10 sDAI · doubles on challenge</text><text x="415" y="180" text-anchor="middle" fill="#9aa6d6" font-size="10.5">contested → Kleros (≈14 days + appeals)</text>
+    <rect x="615" y="20" width="370" height="76" rx="10" fill="#18224a" stroke="#4fe3b0"/><text x="800" y="44" text-anchor="middle" font-weight="700">Fast path: pay at delivery + 48h</text><text x="800" y="64" text-anchor="middle" fill="#9aa6d6" font-size="10.5">test passes · YES ≥ 0.7 · no objection</text><text x="800" y="80" text-anchor="middle" fill="#9aa6d6" font-size="10.5">worker paid now; oracle settles traders later</text>
+    <rect x="615" y="112" width="370" height="76" rx="10" fill="#18224a" stroke="#ff6b8b"/><text x="800" y="136" text-anchor="middle" font-weight="700">Slow path: escrow locked</text><text x="800" y="156" text-anchor="middle" fill="#9aa6d6" font-size="10.5">test fails, YES &lt; 0.7, or poster objects</text><text x="800" y="172" text-anchor="middle" fill="#9aa6d6" font-size="10.5">Reality.eth answer → Kleros if contested → settle</text>
+    <rect x="615" y="204" width="370" height="106" rx="10" fill="#18224a" stroke="#ffc857"/><text x="800" y="228" text-anchor="middle" font-weight="700">What the market gives for free</text><text x="800" y="250" text-anchor="middle" fill="#9aa6d6" font-size="10.5">hedge: poster buys NO · worker must hold YES ≥ 2%</text><text x="800" y="268" text-anchor="middle" fill="#9aa6d6" font-size="10.5">data: calibration → Matcher · risk → Risk Pricing</text><text x="800" y="286" text-anchor="middle" fill="#9aa6d6" font-size="10.5">fees: Swapr LP share, on only after real volume</text><text x="800" y="302" text-anchor="middle" fill="#9aa6d6" font-size="10.5">reversal: clawed back from stake, then reserve</text>
+    <g stroke="#9aa6d6" stroke-width="1.5" fill="none" marker-end="url(#ar)"><path d="M215 63 H240 V125 H263"/><path d="M215 165 H240 V125 H263"/><path d="M215 267 H240 V125 H263"/><path d="M565 125 H590 V58 H613"/><path d="M565 125 H590 V150 H613"/><path d="M565 125 H590 V257 H613"/></g>
   </g>
 </svg>
-<p class="cap">Figure 2. One market per task does four jobs. Below 250 USDC, three staked assessors submit Deep-style forecasts instead, scored by Brier against the final resolution.</p>
+<p class="cap">Figure 2. Three tiers, one truth. Every tier resolves on the same Reality.eth question, so an assessment and a dispute are the same object. Payment runs ahead of resolution on the fast path and never ahead of it on the slow path.</p>
 </div>
-<p>When a task above 250 USDC is matched, Foreguild creates a categorical market on Seer: <i>will this deliverable pass its acceptance test by the deadline?</i> The worker is required to seed YES with 2% of the task value (their skin in the game), the treasury seeds liquidity at 1%, and anyone can trade: the poster hedging delivery risk, other workers who know the task, assessor agents whose whole business is being right about work.</p>
-<p>At delivery the market closes and the YES price is the score. Above 0.7 the splitter pays. Below 0.3 the task rematches, the poster is refunded from escrow and the worker's YES position and stake are forfeited. In between, the dispute ladder runs: the Reality.eth question behind the market is answered with a bond; if contested, Kleros decides, and the market resolves on that answer. The assessment and the dispute are the same object, which is why there is no appeals department to fund.</p>
-<p>Two things fall out for free. The market pays LP fees on every large task, which Foreguild shares with Seer; and every resolved market is a labelled datapoint on how calibrated each worker's bids are, which the Matcher consumes directly and which Risk Pricing can expose as category-level risk. Foreguild becomes the largest creator of resolvable markets on Seer, and Seer's trader side gets a steady supply of markets with real edge for anyone who understands the work.</p>
-<div class="callout violet">Below 250 USDC a market isn't worth its gas and liquidity. Those tasks get the light path: three randomly assigned, staked assessor agents each submit P(pass) plus the output of any machine-checkable test, the median decides, and assessors are paid from the 3% pool by Brier score against what the task eventually resolved to. Same incentives, no order book.</div>
+<h3>Tier A: one Seer market per large task</h3>
+<p>When a task of 1,000 sDAI or more is matched, Foreguild creates a categorical market on Seer: <i>did this deliverable pass its acceptance test by the deadline?</i> The treasury splits 5% of task value into complete YES/NO sets and seeds a Swapr pool across a wide price range; the worker must hold YES worth at least 2% of the task (their skin in the game); and anyone can trade: the poster hedging delivery risk by buying NO, other workers who know the task, assessor agents whose whole business is being right about work. The market opens at match and closes at delivery. The YES price at close is the score.</p>
+<h3>Tier B: weekly Deep batch markets</h3>
+<p>Tasks between 50 and 1,000 don't justify their own pool. Each category instead gets one Deep market a week, a many-outcome market of the kind Deep already runs: <i>which of these 40 deliverables will pass their acceptance tests?</i> Assessor agents mint complete sets and trade the batch toward their predictions, the way Deep's trading cockpit does for funding rounds today. Each task's outcome price is its score. The treasury seeds the batch with 2% of the batch's total task value and pays a small trading reward to assessors whose positions resolve correctly, so there is always an edge worth chasing.</p>
+<h3>Tier C: tests and objections</h3>
+<p>Below 50, the acceptance test and the 48-hour objection window are the whole assessment. An objected Tier C task is added to the next weekly batch at the poster's cost (2%, minimum 5 sDAI), where it gets the same treatment as everything else.</p>
+<h3>Resolution and the fast path</h3>
+<p>Every tier resolves on a Reality.eth question Seer created with the market: opening time = the task deadline, 24-hour timeout, minimum bond 10 sDAI, bond doubling on each challenge, Kleros on dispute. That is slow by design, and a worker can't wait two weeks to be paid for a 300-dollar task. So payment runs on a <b>fast path</b>: at delivery + 48 hours, if the machine-checkable test passed, the market price is at or above 0.7 and the poster hasn't objected, the worker is paid from escrow and the market goes on to resolve for the traders. If the oracle later reverses a fast-path payment, the worker's stake and YES position cover it first, the dispute reserve second. Anything that doesn't qualify for the fast path (test fails, price below 0.7, objection) holds escrow until Reality.eth, and if contested Kleros, answers. The loser pays the escalation.</p>
+<div class="callout violet">Why this is more than a job board: Foreguild becomes the largest creator of resolvable markets on Seer, every one of them with real edge for anyone who understands the work. Seer's trader side gets a weekly supply of Deep batches and Tier A markets; its information side gets the first calibrated price feed on AI work.</div>
 
 <h2 id="agents"><span class="n">04</span>The swarm: six roles, two kinds</h2>
 <table>
 <tr><th>Role</th><th>Kind</th><th>Does</th><th>Earns</th><th>Stakes</th></tr>
-<tr><td><b>Poster</b></td><td>Human or agent</td><td>Writes the task, funds escrow, may hedge in the task market, may object within 48h</td><td>The deliverable</td><td>Escrow</td></tr>
-<tr><td><b>Worker</b></td><td>Open-market agent</td><td>Bids with price + P(deliver), builds, delivers with a signed receipt, seeds YES</td><td>Task price − 3%, plus YES redemption</td><td>50 USDC (Open) · 500 (Proven) · 2,500 (Verified) + 2% of task in YES</td></tr>
-<tr><td><b>Assessor</b></td><td>Open-market agent</td><td>Trades task markets; on small tasks submits forecasts and runs tests</td><td>Market P&amp;L; share of the 3% pool by Brier score</td><td>100 USDC</td></tr>
-<tr><td><b>Scoper</b></td><td>Protocol agent</td><td>Turns requests into resolvable specs, quotes bands, rejects unresolvable tasks, writes the Reality.eth question</td><td>Ops budget</td><td>—</td></tr>
+<tr><td><b>Poster</b></td><td>Human or agent</td><td>Writes the task, funds escrow (sDAI/USDC on Gnosis), may hedge by buying NO, may object within 48h</td><td>The deliverable</td><td>Escrow</td></tr>
+<tr><td><b>Worker</b></td><td>Open-market agent</td><td>Bids with price + P(deliver), builds, delivers with a signed receipt, holds YES</td><td>Task price − 3%, plus YES redemption</td><td>50 sDAI (Open) · 500 (Proven) · 2,500 (Verified) + 2% of task in YES</td></tr>
+<tr><td><b>Assessor</b></td><td>Open-market agent</td><td>Trades Tier A markets and weekly Deep batches; runs acceptance tests</td><td>Market P&amp;L plus batch trading rewards</td><td>100 sDAI</td></tr>
+<tr><td><b>Scoper</b></td><td>Protocol agent</td><td>Turns requests into resolvable specs, quotes bands, rejects unresolvable tasks, writes the Reality.eth question and creates the Seer market</td><td>Ops budget</td><td>—</td></tr>
 <tr><td><b>Matcher</b></td><td>Protocol agent</td><td>Calibrates bids against each worker's resolved-market history, assigns, rematches</td><td>Ops budget</td><td>—</td></tr>
 <tr><td><b>Treasurer</b></td><td>Protocol agent</td><td>Executes only what a passed futarchy market authorised; posts the weekly revenue number to the oracle</td><td>Ops budget</td><td>—</td></tr>
 </table>
-<p>The three protocol agents are the "swarm doing work" and they are replaceable by governance: a futarchy pair can swap the Matcher's model or prompt the way it changes a fee, and the metric says within 90 days whether the swap earned its keep. Workers and assessors are anyone's agents, registered with an ERC-8004-style identity and a stake, paid by EIP-3009 USDC pulls so no one custodies anything. Verified tier has no interview: a worker is Verified when an Opportunity Market says so and 2,500 USDC is posted.</p>
+<p>The three protocol agents are the "swarm doing work" and they are replaceable by governance: a futarchy pair can swap the Matcher's model or prompt the way it changes a fee, and the metric says within 90 days whether the swap earned its keep. Workers and assessors are anyone's agents, registered with an ERC-8004-style identity and a stake, paid by stablecoin pulls so no one custodies anything. Verified tier has no interview: applicants are listed as outcomes in an Opportunity Market that forecasts which ones Seer's reviewers will approve, the reviewers approve from the top of that ranking, and 2,500 sDAI is posted.</p>
 
 <h2 id="demand"><span class="n">05</span>Where tasks come from on day one</h2>
 <p>Job boards die of empty queues. Foreguild launches with four queues that already exist and already pay in crypto, in the order they can be switched on.</p>
@@ -163,9 +169,9 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-si
 <tr><td><b>Seer's own backlog</b></td><td>Seer, via the Scoper</td><td>Draft a resolvable market question; gather resolution evidence; write the Reality.eth answer; LP rebalancing reports</td><td>Seer does this by hand for every market and contest it runs</td><td>10% task fee</td></tr>
 <tr><td><b>Contest hosting</b></td><td>Any project (Seer first)</td><td>Run a naming, design or plan contest on an Opportunity Market; agents triage, dedupe and summarise entries</td><td>Seer is running three right now (66 and 135 poidh claims on the last two), each 0.5 ETH + 4,000 USDC, judged on Opportunity Markets</td><td>2% of prize + LP fee share</td></tr>
 <tr><td><b>Bounty routing</b></td><td>poidh and other boards</td><td>Pull open bounties from public feeds; workers claim through Foreguild with assessment included</td><td>poidh publishes an open-bounty JSON feed and an MCP server; its bounties are ETH-funded and claim-based</td><td>10% on top of the board's own 2.5%</td></tr>
-<tr><td><b>Grant and funding review</b></td><td>Funding rounds (Deep Funding, Gitcoin, DAO grant programs)</td><td>Agents forecast evaluator scores across large proposal fields; humans review only the top of the ranking</td><td>Deep Funding allocated $350k across 98 repos and 3,677 dependencies with exactly this mechanism on Seer</td><td>Enterprise feed, 2–10k USDC per round</td></tr>
+<tr><td><b>Grant and funding review</b></td><td>Funding rounds (Deep Funding, Gitcoin, DAO grant programs)</td><td>Agents forecast evaluator scores across large proposal fields; humans review only the top of the ranking</td><td>Deep Funding allocated $350k across 98 repos and 3,677 dependencies with exactly this mechanism on Seer</td><td>Enterprise feed, 2–10k per round</td></tr>
 </table>
-<div class="callout amber">First-90-day target: <b>300 accepted tasks</b>, at least 100 from outside Seer, <b>40 task markets</b> created, and <b>3 hosted contests</b>. If Seer's backlog is still more than 60% of volume at day 90, the kill criteria in Section 13 apply.</div>
+<div class="callout amber">First-90-day target: <b>300 accepted tasks</b>, at least 100 from outside Seer, <b>12 weekly Deep batches</b> and <b>10 Tier A markets</b> resolved, and <b>3 hosted contests</b>. If Seer's backlog is still more than 60% of volume at day 90, the kill criteria in Section 13 apply.</div>
 
 <h2 id="futarchy"><span class="n">06</span>Futarchy: what gets decided, and how</h2>
 <div class="fig">
@@ -180,13 +186,13 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-si
     <g stroke="#9aa6d6" stroke-width="1.5" fill="none" marker-end="url(#ar)"><path d="M205 65 H225 V33 H243"/><path d="M205 65 H225 V103 H243"/><path d="M465 33 H485 V68 H503"/><path d="M465 103 H485 V68 H503"/><path d="M725 68 H763"/><path d="M875 100 V158"/></g>
   </g>
 </svg>
-<p class="cap">Figure 3. A Seer futarchy proposal pair as it exists today on futarchy.seer.pm, with the scalar collateral replaced by Foreguild's own revenue oracle.</p>
+<p class="cap">Figure 3. A Seer futarchy proposal pair as it exists today on futarchy.seer.pm, with the token-price metric replaced by Foreguild's own revenue number reported through Reality.eth.</p>
 </div>
 <h3>The metric</h3>
 <p><b>Net fee revenue, 90 days, USDC</b>: task fees + Foreguild's share of task-market and contest-market LP fees + enterprise feeds, minus refunds, dispute payouts and the assessor pool. It excludes token appreciation, grants and interest, so no market can be won by pumping a token or parking a treasury. Ninety days rather than six or twelve months, because the loop has to close fast enough that an agent-model swap can be judged inside one quarter, and because Seer's resolution window is weeks, not years.</p>
 <h3>What is binding</h3>
 <ul>
-  <li>Take-rate and fee split inside the 5–15% band; the 250 USDC task-market threshold</li>
+  <li>Take-rate and fee split inside the 5–15% band; the Tier A and Tier B thresholds</li>
   <li>Opening or closing a task category or queue</li>
   <li>Treasury spends over 10,000 USDC: liquidity seeding, marketing, protocol-agent compute</li>
   <li>Replacing a protocol agent's model or prompt</li>
@@ -195,7 +201,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-si
 <h3>Three markets ready to list at launch</h3>
 <div class="q">Q1  Will Foreguild's 90-day net fee revenue be higher if the poster fee is cut to 5% (worker 3%) than if it stays at 7%?</div>
 <div class="q">Q2  Will 90-day net fee revenue be higher if the bounty-routing queue is opened to poidh's Base and Arbitrum feeds than if it is not?</div>
-<div class="q">Q3  Will 90-day net fee revenue be higher if the task-market threshold is lowered from 250 to 100 USDC than if it stays at 250?</div>
+<div class="q">Q3  Will 90-day net fee revenue be higher if the Tier A threshold is lowered from 1,000 to 500 sDAI than if it stays at 1,000?</div>
 <p>Liquidity for a decision pair is subsidised at 1% of the proposal's stated revenue impact, between 500 and 10,000 USDC. Thin markets default to the status quo (Section 13). Proposal bonds return when the pair resolves and are forfeited to the assessor pool if a proposal is withdrawn after trading opens.</p>
 
 <h2 id="worked"><span class="n">07</span>A decision, worked end to end</h2>
@@ -219,54 +225,54 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-si
 <tr><td>poidh</td><td class="num">2.5% on payout</td><td class="num">0%</td><td class="num">$2.50</td></tr>
 <tr><td><b>Foreguild at launch</b></td><td class="num"><b>3%</b></td><td class="num"><b>7%</b></td><td class="num"><b>$10.00</b></td></tr>
 </table>
-<p>Foreguild sits between a bare bounty board and a managed marketplace because it bundles what neither does: assessment, insurance and dispute resolution inside the price, provided by a market instead of staff. The band (5–15%) is the only pricing decision humans make; the point inside it is futarchy's.</p>
+<p>Foreguild sits between a bare bounty board and a managed marketplace because it bundles what neither does: assessment, hedging and dispute resolution inside the price, provided by a market instead of staff. The band (5–15%) is the only pricing decision humans make; the point inside it is futarchy's.</p>
 <h3>Unit economics</h3>
 <div class="grid2">
 <div>
 <table>
-<tr><th colspan="3">One accepted $100 task (light path)</th></tr>
+<tr><th colspan="3">One accepted $100 task (Tier B, Deep batch)</th></tr>
 <tr><td>Poster fee 7%</td><td class="num">+7.00</td><td>Splitter</td></tr>
 <tr><td>Worker fee 3%</td><td class="num">+3.00</td><td>Splitter</td></tr>
-<tr><td>Assessor pool</td><td class="num">−3.00</td><td>3 assessors by Brier</td></tr>
+<tr><td>Batch seed + trading reward</td><td class="num">−2.00</td><td>Seed mostly recovered at resolution</td></tr>
 <tr><td>Dispute &amp; refund reserve</td><td class="num">−1.00</td><td>Until 3× trailing payouts</td></tr>
 <tr><td>Protocol agents + gas</td><td class="num">−0.50</td><td>Ops</td></tr>
-<tr class="tot"><td>Treasury</td><td class="num">+5.50</td><td></td></tr>
+<tr class="tot"><td>Treasury</td><td class="num">+6.50</td><td></td></tr>
 </table>
 </div>
 <div>
 <table>
-<tr><th colspan="3">One accepted $1,000 task (market path)</th></tr>
+<tr><th colspan="3">One accepted $1,000 task (Tier A, own market)</th></tr>
 <tr><td>Poster + worker fees 10%</td><td class="num">+100.00</td><td>Splitter</td></tr>
-<tr><td>Task-market LP fees, Foreguild share</td><td class="num">+6.00</td><td>~1.2% fee on ~1× task value traded, split 50/50 with Seer</td></tr>
-<tr><td>Liquidity seed (recovered at resolution, net of impermanent loss)</td><td class="num">−2.00</td><td>1% seeded, ~80% recovered</td></tr>
+<tr><td>Swapr LP fee share</td><td class="num">+0.00</td><td>Counted at zero until a futarchy pair sees real volume</td></tr>
+<tr><td>Liquidity seed, net</td><td class="num">−10.00</td><td>5% split into complete sets, ~80% recovered</td></tr>
 <tr><td>Dispute &amp; refund reserve</td><td class="num">−10.00</td><td>Reserve</td></tr>
 <tr><td>Protocol agents + gas + market creation</td><td class="num">−4.00</td><td>Ops</td></tr>
-<tr class="tot"><td>Treasury</td><td class="num">+90.00</td><td></td></tr>
+<tr class="tot"><td>Treasury</td><td class="num">+76.00</td><td></td></tr>
 </table>
 </div>
 </div>
-<p>No assessor pool on the market path: assessors are paid by being right in the order book, not by the treasury. That is the structural reason large tasks are more profitable than small ones, and why Q3 (lowering the threshold) is a real question for the market to answer rather than a parameter to guess.</p>
+<p>Assessors are never paid from the treasury: in both tiers they earn by being right in a market. That is why the plan can run assessment at 2% of task value where a review desk costs 10%, and why Q3 (where the tier boundary sits) is a question for the market rather than a parameter to guess.</p>
 <h3>Six revenue lines, in the order they switch on</h3>
 <table>
 <tr><th>#</th><th>Line</th><th>Price</th><th>Switches on</th></tr>
 <tr><td>1</td><td>Contest hosting through Opportunity Markets</td><td>2% of prize pool + 50% of that market's LP fees</td><td>Week 1, Seer's own contests</td></tr>
 <tr><td>2</td><td>Task fees</td><td>10% blended; band 5–15%</td><td>Week 2</td></tr>
-<tr><td>3</td><td>Task-market LP fees</td><td>50% of LP fees on every task market</td><td>Week 5, first task above 250 USDC</td></tr>
-<tr><td>4</td><td>Escalated assessment (light path)</td><td>2% of task, minimum 5 USDC, per escalation</td><td>Week 2</td></tr>
-<tr><td>5</td><td>Verified-tier certificate</td><td>99 USDC a year, admission by Opportunity Market</td><td>Month 2</td></tr>
-<tr><td>6</td><td>Enterprise review feed (funding rounds, grant programs)</td><td>2,000–10,000 USDC per round, task fee 6%</td><td>Month 3, after one public Deep-style round</td></tr>
+<tr><td>3</td><td>Swapr LP fee share on Tier A markets</td><td>Treasury's share of pool fees; counted at zero in the base case</td><td>Only after a futarchy pair sees real volume</td></tr>
+<tr><td>4</td><td>Objection escalation (Tier C into a batch)</td><td>2% of task, minimum 5 sDAI</td><td>Week 2</td></tr>
+<tr><td>5</td><td>Verified-tier certificate</td><td>99 sDAI a year; Opportunity Market ranks applicants, reviewers approve</td><td>Month 2</td></tr>
+<tr><td>6</td><td>Enterprise review feed (funding rounds, grant programs)</td><td>2,000–10,000 per round, task fee 6%</td><td>Month 3, after one public Deep-style round</td></tr>
 </table>
 <h3>Base case</h3>
 <table>
 <tr><th></th><th>Day 90</th><th>Month 6</th><th>Month 12</th></tr>
 <tr><td>Accepted tasks</td><td class="num">300</td><td class="num">1,500</td><td class="num">6,000</td></tr>
 <tr><td>Average ticket</td><td class="num">$60</td><td class="num">$75</td><td class="num">$90</td></tr>
-<tr><td>Share of GMV on the market path</td><td class="num">25%</td><td class="num">35%</td><td class="num">45%</td></tr>
+<tr><td>Share of GMV in Tier A (own market)</td><td class="num">10%</td><td class="num">20%</td><td class="num">30%</td></tr>
 <tr><td>Task GMV</td><td class="num">$18k</td><td class="num">$112k</td><td class="num">$540k</td></tr>
 <tr><td>Hosted contests × avg prize</td><td class="num">3 × $5k</td><td class="num">10 × $6k</td><td class="num">30 × $8k</td></tr>
 <tr><td>Enterprise rounds</td><td class="num">0</td><td class="num">2</td><td class="num">8</td></tr>
-<tr class="tot"><td>Net fee revenue (period)</td><td class="num">$2.5k</td><td class="num">$23k</td><td class="num">$100k</td></tr>
-<tr><td>Treasury contribution (period)</td><td class="num">$1.8k</td><td class="num">$18k</td><td class="num">$75k</td></tr>
+<tr class="tot"><td>Net fee revenue (period)</td><td class="num">$2.5k</td><td class="num">$23k</td><td class="num">$99k</td></tr>
+<tr><td>Treasury contribution (period)</td><td class="num">$1.9k</td><td class="num">$19k</td><td class="num">$80k</td></tr>
 </table>
 <p>These are planning numbers with one property worth defending: the treasury line never goes negative, because growth spend is only released when a decision market says it pays back inside 90 days. The twelve-month figure is a Seer-and-Kleros-ecosystem outcome, not a Fiverr outcome. The fee band is what lets the market discover whether a lower take rate buys a bigger one.</p>
 
@@ -276,7 +282,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-si
   <div class="row"><label>Take rate (band 5–15%)</label><input type="range" id="take" min="5" max="15" step="0.5" value="10"><div class="val" id="takeV">10%</div></div>
   <div class="row"><label>Accepted tasks / month</label><input type="range" id="tasks" min="50" max="2000" step="50" value="300"><div class="val" id="tasksV">300</div></div>
   <div class="row"><label>Average ticket (USDC)</label><input type="range" id="ticket" min="20" max="500" step="5" value="75"><div class="val" id="ticketV">75</div></div>
-  <div class="row"><label>GMV on market path</label><input type="range" id="mkt" min="0" max="80" step="5" value="30"><div class="val" id="mktV">30%</div></div>
+  <div class="row"><label>GMV in Tier A</label><input type="range" id="mkt" min="0" max="80" step="5" value="20"><div class="val" id="mktV">20%</div></div>
   <div class="row"><label>Dispute / refund rate</label><input type="range" id="disp" min="0" max="20" step="1" value="5"><div class="val" id="dispV">5%</div></div>
   <div class="row"><label>Contests hosted / month</label><input type="range" id="contests" min="0" max="20" step="1" value="2"><div class="val" id="contestsV">2</div></div>
   <div class="out">
@@ -285,7 +291,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-si
     <div class="o"><div class="lab">Treasury / month</div><div class="v" id="oTre">—</div></div>
     <div class="o"><div class="lab">90-day metric</div><div class="v" id="oMet">—</div></div>
   </div>
-  <p class="cap">Assumptions: light-path cost 4.5% of task (assessor pool 3%, ops 0.5%, reserve 1%); market-path LP share 0.6% of task value, seed loss 0.2%, ops 0.4%, reserve 1%; refunds cost the full fee on disputed tasks; contests average 6,000 USDC prize, 2% fee plus ~100 USDC LP share.</p>
+  <p class="cap">Assumptions: Tier B/C cost 3.5% of task (batch seed and rewards 2%, ops 0.5%, reserve 1%); Tier A cost 2.4% (seed loss 1%, ops 0.4%, reserve 1%) with LP fee share counted at zero; refunds cost the full fee on disputed tasks; contests average 6,000 prize, 2% fee plus ~100 Opportunity Market LP share.</p>
 </div>
 <script>
 (function(){
@@ -295,11 +301,11 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-si
     var take=+take_.value/100, tasks=+tasks_.value, ticket=+ticket_.value, mkt=+mkt_.value/100, disp=+disp_.value/100, contests=+contests_.value;
     var gmv=tasks*ticket, light=gmv*(1-mkt), market=gmv*mkt;
     var fees=gmv*take;
-    var lp=market*0.006;
+    var lp=0;
     var contestRev=contests*(6000*0.02+100);
     var refunds=gmv*disp*take;
     var rev=fees+lp+contestRev-refunds;
-    var cost=light*0.045+market*(0.002+0.004+0.01);
+    var cost=light*0.035+market*0.024;
     var tre=rev-cost;
     document.getElementById('takeV').textContent=(take*100)+'%';
     document.getElementById('tasksV').textContent=tasks;
@@ -321,42 +327,72 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-si
 <h2 id="runbook"><span class="n">10</span>First 90 days</h2>
 <table>
 <tr><th>Weeks</th><th>Ship</th><th>Gate</th></tr>
-<tr><td>1–2</td><td>Fee splitter + escrow on Base (USDC, EIP-3009 pulls); task registry forked from an open-source agent task market; Opportunity Market hosting for Seer's current contests</td><td>First contest hosted, first 2% fee collected</td></tr>
+<tr><td>1–2</td><td>Fee splitter + escrow on Gnosis (sDAI/USDC); task registry forked from an open-source agent task market; Base and Ethereum bridge-in for posters; Opportunity Market hosting for Seer's current contests</td><td>First contest hosted, first 2% fee collected</td></tr>
 <tr><td>3–4</td><td>Scoper and Matcher live; Seer backlog queue; 20 worker agents and 10 assessor agents registered with stake</td><td>50 accepted tasks, dispute rate &lt; 8%</td></tr>
-<tr><td>5–8</td><td>Task-market creation for tasks ≥ 250 USDC; bounty routing from poidh feeds; Q1–Q3 futarchy pairs listed; weekly revenue number posted to the oracle</td><td>First binding decision executed by the Treasurer; 10 task markets resolved</td></tr>
-<tr><td>9–12</td><td>Verified tier via Opportunity Market; first external funding round scoped as an enterprise feed; public dashboard of the metric and every open pair</td><td>300 accepted tasks, ≥ 100 non-Seer, 40 task markets, 3 contests, treasury positive</td></tr>
+<tr><td>5–8</td><td>First weekly Deep batch per category; first Tier A market; bounty routing from poidh feeds; Q1–Q3 futarchy pairs listed on futarchy.seer.pm; weekly revenue number posted to the oracle</td><td>First binding decision executed by the Treasurer; 4 batches and 3 Tier A markets resolved</td></tr>
+<tr><td>9–12</td><td>Verified tier via Opportunity Market; first external funding round scoped as an enterprise feed; public dashboard of the metric and every open pair</td><td>300 accepted tasks, ≥ 100 non-Seer, 12 batches, 10 Tier A markets, 3 contests, treasury positive</td></tr>
 </table>
 <p><b>Keys on day one</b>: a 3-of-5 Guardian, two seats from Seer, two independent builders from the Kleros and Gnosis ecosystems, one rotating seat chosen by Opportunity Market each quarter. The Guardian can pause and veto; it cannot spend, propose or decide a dispute on its merits.</p>
-<p><b>Bootstrapping thin markets</b>: for the first 90 days the treasury's liquidity line is funded from contest-hosting fees, not from a token; every decision pair and every task market above 1,000 USDC gets the subsidy; and Seer's existing market-maker configuration is reused, so Foreguild adds order flow to Seer rather than competing with it for liquidity.</p>
+<p><b>Bootstrapping thin markets</b>: for the first 90 days the treasury's liquidity line is funded from contest-hosting fees, not from a token; every decision pair, every Tier A market and every weekly batch gets the subsidy; and liquidity goes into the same Swapr pools Seer markets already use, so Foreguild adds order flow to Seer rather than competing with it.</p>
 
 <h2 id="humans"><span class="n">11</span>Where humans stay in the loop</h2>
 <ul>
-  <li><b>Values.</b> The revenue definition, the fee band and the task-market threshold's bounds change only by token-holder vote with 60 days' notice. Markets can't vote themselves a new metric.</li>
+  <li><b>Values.</b> The revenue definition, the fee band and the tier thresholds' bounds change only by token-holder vote with 60 days' notice. Markets can't vote themselves a new metric.</li>
   <li><b>Pause.</b> Guardian pauses expire in 7 days unless a futarchy pair ratifies them. A pause that keeps getting ratified is a policy and should be proposed as one.</li>
   <li><b>Disputes.</b> Reality.eth and Kleros are human-staffed by design. Foreguild never adjudicates on its own, and every task market resolves on the same answer a dispute would.</li>
-  <li><b>Circuit breakers.</b> Dispute rate above 8% over 30 days halts new matching in that category. One wallet cluster above 40% of a market's volume, or a 25% move in the final hour, extends trading 72 hours and doubles the subsidy. Treasury spend above 10,000 USDC waits for a second passed pair.</li>
+  <li><b>Circuit breakers.</b> Dispute rate above 8% over 30 days halts new matching in that category. One wallet cluster above 40% of a market's volume, or a 25% move in the final hour, extends trading 72 hours and doubles the subsidy. Treasury spend above 10,000 waits for a second passed pair.</li>
   <li><b>Posters.</b> A human poster always has the 48-hour objection window; silence is acceptance; the first objection per poster is a free escalation.</li>
 </ul>
 
 <h2 id="parts"><span class="n">12</span>Built from parts that already run</h2>
-<p>Nothing in this plan requires inventing a protocol. The build is integration plus one small contract.</p>
+<p>Nothing in this plan requires inventing a protocol. The build is integration plus one small contract.</p><div class="fig">
+<svg viewBox="0 0 1000 300" role="img" aria-label="Map of Seer products to the Foreguild task lifecycle">
+  <g font-family="ui-monospace,Menlo,monospace" font-size="12" fill="#e8ecff">
+    <text x="20" y="28" fill="#9aa6d6" font-size="11" letter-spacing="2">FOREGUILD STAGE</text>
+    <text x="20" y="200" fill="#9aa6d6" font-size="11" letter-spacing="2">SEER PRODUCT IT RUNS ON</text>
+    <g>
+      <rect x="20" y="40" width="150" height="54" rx="9" fill="#18224a" stroke="#26315f"/><text x="95" y="62" text-anchor="middle" font-weight="700">Contest hosting</text><text x="95" y="80" text-anchor="middle" fill="#9aa6d6" font-size="10.5">rank entries, pick one</text>
+      <rect x="185" y="40" width="150" height="54" rx="9" fill="#18224a" stroke="#26315f"/><text x="260" y="62" text-anchor="middle" font-weight="700">Verified tier</text><text x="260" y="80" text-anchor="middle" fill="#9aa6d6" font-size="10.5">who gets the badge</text>
+      <rect x="350" y="40" width="150" height="54" rx="9" fill="#18224a" stroke="#26315f"/><text x="425" y="62" text-anchor="middle" font-weight="700">Tier B assessment</text><text x="425" y="80" text-anchor="middle" fill="#9aa6d6" font-size="10.5">40 tasks, one market</text>
+      <rect x="515" y="40" width="150" height="54" rx="9" fill="#18224a" stroke="#26315f"/><text x="590" y="62" text-anchor="middle" font-weight="700">Tier A assessment</text><text x="590" y="80" text-anchor="middle" fill="#9aa6d6" font-size="10.5">one task, one market</text>
+      <rect x="680" y="40" width="150" height="54" rx="9" fill="#18224a" stroke="#26315f"/><text x="755" y="62" text-anchor="middle" font-weight="700">Policy &amp; spend</text><text x="755" y="80" text-anchor="middle" fill="#9aa6d6" font-size="10.5">fees, queues, models</text>
+      <rect x="845" y="40" width="140" height="54" rx="9" fill="#18224a" stroke="#26315f"/><text x="915" y="62" text-anchor="middle" font-weight="700">Truth</text><text x="915" y="80" text-anchor="middle" fill="#9aa6d6" font-size="10.5">all tiers, all pairs</text>
+    </g>
+    <g stroke="#9aa6d6" stroke-width="1.5" fill="none" marker-end="url(#ar)"><path d="M95 94 V128"/><path d="M260 94 V128"/><path d="M425 94 V128"/><path d="M590 94 V128"/><path d="M755 94 V128"/><path d="M915 94 V128"/></g>
+    <g>
+      <rect x="20" y="132" width="150" height="54" rx="9" fill="#121a33" stroke="#4fe3b0"/><text x="95" y="154" text-anchor="middle" font-weight="700">Opportunity Mkts</text><text x="95" y="172" text-anchor="middle" fill="#9aa6d6" font-size="10.5">opportunity.seer.pm</text>
+      <rect x="185" y="132" width="150" height="54" rx="9" fill="#121a33" stroke="#4fe3b0"/><text x="260" y="154" text-anchor="middle" font-weight="700">Opportunity Mkts</text><text x="260" y="172" text-anchor="middle" fill="#9aa6d6" font-size="10.5">reviewers decide</text>
+      <rect x="350" y="132" width="150" height="54" rx="9" fill="#121a33" stroke="#5cc8ff"/><text x="425" y="154" text-anchor="middle" font-weight="700">Deep</text><text x="425" y="172" text-anchor="middle" fill="#9aa6d6" font-size="10.5">deep.seer.pm</text>
+      <rect x="515" y="132" width="150" height="54" rx="9" fill="#121a33" stroke="#ffc857"/><text x="590" y="154" text-anchor="middle" font-weight="700">Seer app market</text><text x="590" y="172" text-anchor="middle" fill="#9aa6d6" font-size="10.5">categorical, sDAI</text>
+      <rect x="680" y="132" width="150" height="54" rx="9" fill="#121a33" stroke="#8b7cff"/><text x="755" y="154" text-anchor="middle" font-weight="700">Futarchy</text><text x="755" y="172" text-anchor="middle" fill="#9aa6d6" font-size="10.5">futarchy.seer.pm</text>
+      <rect x="845" y="132" width="140" height="54" rx="9" fill="#121a33" stroke="#ff6b8b"/><text x="915" y="154" text-anchor="middle" font-weight="700">Reality.eth</text><text x="915" y="172" text-anchor="middle" fill="#9aa6d6" font-size="10.5">→ Kleros</text>
+    </g>
+    <rect x="20" y="215" width="965" height="66" rx="9" fill="#18224a" stroke="#26315f"/>
+    <text x="502" y="240" text-anchor="middle" fill="#9aa6d6" font-size="11">Risk Pricing consumes the output: per-category pass rates and worker calibration from resolved Tier A and Tier B markets</text>
+    <text x="502" y="262" text-anchor="middle" fill="#9aa6d6" font-size="11">become a live "risk of buying AI work" feed, the first of its kind, published back into Seer.</text>
+  </g>
+</svg>
+<p class="cap">Figure 4. Six Foreguild stages, six Seer products, one oracle. Nothing on the bottom row is proposed; all of it runs today.</p>
+</div>
+
 <table>
 <tr><th>Layer</th><th>Existing part</th><th>Role in Foreguild</th></tr>
 <tr><td>Governance</td><td>Seer Futarchy (futarchy.seer.pm; seer-pm/futarchy)</td><td>Every binding decision is a YES/NO pair on the revenue metric</td></tr>
-<tr><td>Task markets</td><td>Seer categorical markets (Reality.eth templates, Conditional Tokens, Seer's wrapped ERC-20 outcomes)</td><td>One market per task ≥ 250 USDC; assessment, insurance, LP fees</td></tr>
+<tr><td>Tier A task markets</td><td>Seer categorical markets on Gnosis (Reality.eth templates, Conditional Tokens, wrapped ERC-20 outcomes, Swapr pools)</td><td>One market per task ≥ 1,000; assessment, hedge, later LP fees</td></tr>
 <tr><td>Ranking and selection</td><td>Seer Opportunity Markets (opportunity.seer.pm)</td><td>Contest hosting, Verified-tier admission, Guardian seat</td></tr>
-<tr><td>Forecast assessment</td><td>Seer Deep (deep.seer.pm) and the Deep Funding evaluator-forecast model</td><td>Light-path assessors; enterprise review feed</td></tr>
+<tr><td>Tier B batch markets</td><td>Seer Deep (deep.seer.pm): many-outcome markets built for AI agents to trade, with complete-set minting</td><td>Weekly batch per category; enterprise review feed</td></tr>
 <tr><td>Truth and disputes</td><td>Reality.eth + Kleros</td><td>Final resolution for tasks, markets and the metric itself</td></tr>
-<tr><td>Job board and payments</td><td>Open-source agent task marketplace on Base (e.g. basedagents: Apache-2.0, Hono API, EIP-3009 USDC settlement, signed receipts, revision rounds, auto-accept)</td><td>Task registry and receipts; fork, add escrow + splitter</td></tr>
+<tr><td>Job board and receipts</td><td>Open-source agent task marketplace (e.g. basedagents: Apache-2.0, Hono API, stablecoin settlement, signed receipts, revision rounds, auto-accept)</td><td>Task registry and receipts; fork, repoint to Gnosis, add escrow + splitter</td></tr>
 <tr><td>Agent identity and stake</td><td>ERC-8004-style agent registry; x402 for pay-per-call tool access</td><td>Worker and assessor registration, stake, reputation; metered API revenue later</td></tr>
 <tr><td>Supply of tasks</td><td>poidh open-bounty JSON feed and MCP server</td><td>Bounty routing queue</td></tr>
 </table>
 <h3>The one new contract</h3>
-<div class="q">ForeguildSplitter (Base)
-  postTask(spec, test, deadline, amount)       → escrow USDC via EIP-3009; emits TaskPosted
-  openMarket(taskId)                           → creates Seer market, seeds 1%, requires worker YES seed
-  deliver(taskId, receiptHash)                 → starts 48h objection window
-  settle(taskId, score)                        → pays worker / assessors / reserve / treasury; or refunds + slashes
+<div class="q">ForeguildSplitter (Gnosis)
+  postTask(spec, test, deadline, amount)       → escrow sDAI/USDC; emits TaskPosted
+  openMarket(taskId | batchId)                 → creates the Seer market or adds to this week's Deep batch; seeds the pool
+  deliver(taskId, receiptHash, testResult)     → starts the 48h objection window
+  fastSettle(taskId)                           → pays worker if test passed, YES ≥ 0.7, no objection
+  finalSettle(taskId)                          → after Reality.eth/Kleros: pays, or claws back from stake + reserve
   postRevenue(period, usdc)                    → Treasurer posts weekly number to the Reality.eth metric question
   execute(decisionId)                          → applies a passed futarchy pair after the 48h delay; Guardian may veto
   kill(reason)                                 → callable only when a published kill criterion is met onchain</div>
@@ -366,11 +402,13 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-si
 <table>
 <tr><th>Risk</th><th>Signal</th><th>Response</th></tr>
 <tr><td>Thin markets make futarchy noise</td><td>&lt; 2,000 USDC liquidity on a binding pair</td><td>Decision defaults to the status quo; subsidy doubles once; if still thin, proposal lapses</td></tr>
-<tr><td>Worker manipulates their own task market</td><td>Worker-cluster volume &gt; 40% of a task market, or YES pumped in the final hour</td><td>Circuit breaker extends trading; resolution is by acceptance test and Kleros, not by price, so a pumped YES only costs the pumper</td></tr>
-<tr><td>Assessor collusion with workers</td><td>Assessor Brier score diverges from Kleros outcomes</td><td>Random assignment on the light path; stake slashed on Kleros reversal; identity registry blocks shared operators</td></tr>
+<tr><td>Worker pumps YES to hit the fast path</td><td>Worker-cluster volume &gt; 40% of a task market, or YES pumped in the final hour</td><td>Circuit breaker extends trading and voids the fast path for that task; final truth is the acceptance test, Reality.eth and Kleros, so a pumped YES is clawed back from stake</td></tr>
+<tr><td>Oracle too slow for working capital</td><td>Escrow locked &gt; 7 days on more than 10% of tasks</td><td>Fast path already pays 90%+ of tasks at delivery + 48h; the reserve ratio (3× trailing clawbacks) is the futarchy-governed buffer for the rest</td></tr>
+<tr><td>Posters live on Base, markets live on Gnosis</td><td>Bridge-in drop-off at posting</td><td>One-click bridge in the posting flow; poidh-routed bounties pay out on their own chain with the fee bridged</td></tr>
+<tr><td>Assessor collusion with workers</td><td>Assessor positions consistently diverge from Kleros outcomes</td><td>Collusion is unprofitable against an honest oracle; stake slashed on Kleros reversal; identity registry blocks shared operators</td></tr>
 <tr><td>Metric gaming (wash tasks)</td><td>Poster and worker share a wallet cluster</td><td>Fees from clustered pairs excluded from the metric; refunds count negative</td></tr>
 <tr><td>Seer is the only customer</td><td>Seer backlog &gt; 60% of GMV at day 90</td><td><b>Kill criterion</b>: freeze expansion, run one external-demand pair; if it fails, wind down to a Seer-internal tool</td></tr>
-<tr><td>Regulatory pressure on prediction markets</td><td>Jurisdictional notice</td><td>Task and decision markets are information markets on the organisation's own work and revenue, settled in-protocol; geofence the trading UI, keep the job board open</td></tr>
+<tr><td>Regulatory pressure on prediction markets</td><td>Jurisdictional notice</td><td>Task, batch and decision markets are information markets on the organisation's own work and revenue, settled in-protocol; geofence the trading UI, keep the job board open</td></tr>
 <tr><td>Treasury never turns positive</td><td>Two consecutive 90-day windows with negative contribution</td><td><b>Kill criterion</b>: Guardian pause, token-holder vote on dissolution, escrow returned</td></tr>
 </table>
 <div class="callout rose">An FAO that cannot be shut down by its own numbers is just a DAO with better marketing. Foreguild publishes its kill criteria in the same contract that publishes its revenue.</div>
